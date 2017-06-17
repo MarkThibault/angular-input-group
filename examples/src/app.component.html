@@ -1,0 +1,89 @@
+<div class="Wrapper">
+    <main class="Main">
+        <div class="Form" ng-form="testForm">
+            <h3>Toggle Styles:</h3>
+            <p>
+                <label>
+                    <input type="radio" ng-model="app.style" value="0" ng-change="app.toggleStyle()">
+                    None
+                </label>
+                <label>
+                    <input type="radio" ng-model="app.style" value="1" ng-change="app.toggleStyle()">
+                    Material
+                </label>
+                <label>
+                    <input type="radio" ng-model="app.style" value="2" ng-change="app.toggleStyle()">
+                    Custom
+                </label>
+            </p>
+            <br>
+            <angular-input-email form-name="testForm" field-name="email" parent-model="app.email" on-update="app.updateEmail($event)"
+                is-disabled="false" is-required="true" auto-focus="true" tab-index="1" label-text=""></angular-input-email>
+
+            <!--<angular-input-group form-name="testForm" field-name="email">
+                <angular-input-group-label>Email</angular-input-group-label>
+                <angular-input-group-input>
+                    <input angular-input id="email" name="email" type="email" ng-model="app.email" ng-change="" ng-disabled="false" ng-required="true"
+                        minlength="10" maxlength="100" pattern="/^.+@.+\..+$/" autofocus="false" />
+                </angular-input-group-input>
+                <angular-input-group-info>
+                    <angular-input-group-error-message-required>Email is a required field</angular-input-group-error-message-required>
+                    <angular-input-group-error-message-pattern>This is an invalid email</angular-input-group-error-message-pattern>
+                    <angular-input-group-error-message-minlength>Email must be at least 10 characters long</angular-input-group-error-message-minlength>
+                </angular-input-group-info>
+            </angular-input-group>-->
+
+            <pre ng-show="app.showFormFieldInfo">{{testForm.email | json: 4}}</pre>
+
+            <angular-input-password form-name="testForm" field-name="password" parent-model="app.password" on-update="app.updatePassword($event)"
+                is-disabled="false" is-required="true" auto-focus="false" tab-index="2" label-text=""></angular-input-password>
+
+            <!--<angular-input-group form-name="testForm" field-name="password">
+                <angular-input-group-label>Password</angular-input-group-label>
+                <angular-input-group-input>
+                    <input angular-input id="password" name="password" type="password" ng-model="app.password" ng-change="" ng-disabled="false"
+                        required minlength="8" maxlength="20" tabindex="2" />
+                </angular-input-group-input>
+                <angular-input-group-info>
+                    <angular-input-group-error-message-required>Password is a required field</angular-input-group-error-message-required>
+                    <angular-input-group-error-message-minlength>Password must be at least 8 characters long</angular-input-group-error-message-minlength>
+                </angular-input-group-info>
+            </angular-input-group>-->
+
+            <angular-input-password-confirmation form-name="testForm" field-name="confirmPassword" matching-field-name="password" parent-model="app.confirmtPassword"
+                on-update="app.updateConfirmPassword($event)" is-disabled="false" is-required="true" auto-focus="false" tab-index="3"
+                label-text=""></angular-input-password-confirmation>
+
+            <!--<angular-input-group form-name="testForm" field-name="test">
+                <angular-input-group-label>Test</angular-input-group-label>
+                <angular-input-group-input icon="app.icon">
+                    <input angular-input id="test" name="test" type="text" ng-model="app.test"
+                        ng-disabled="false" required minlength="8" maxlength="50" tabindex="2" />
+                </angular-input-group-input>
+                <angular-input-group-info show-custom-message-1="testForm.test.$error.confirmation">
+                    <angular-input-group-error-message-required>Confirm Password is a required field</angular-input-group-error-message-required>
+                    <angular-input-group-error-message-custom1>Passwords do not match</angular-input-group-error-message-custom1>
+                </angular-input-group-info>
+            </angular-input-group>-->
+
+            <angular-input-group form-name="testForm" field-name="custom">
+                <angular-input-group-label>Custom Field With A Really Long Title</angular-input-group-label>
+                <angular-input-group-input>
+                    <input angular-input id="custom" name="custom" type="text" ng-model="app.test" ng-disabled="false" minlength="8" maxlength="50"
+                        tabindex="4" required pattern="^[a-z]+$" />
+                </angular-input-group-input>
+                <angular-input-group-info show-count="true">
+                    <angular-input-group-error-message-required>Custom Field is a required field</angular-input-group-error-message-required>
+                    <angular-input-group-error-message-minlength>Custom Field must be at least 8 charactes long</angular-input-group-error-message-minlength>
+                    <angular-input-group-error-message-maxlength>Custom Field is at it's maxlength</angular-input-group-error-message-maxlength>
+                    <angular-input-group-error-message-pattern>Custom Field only allows lower case letters</angular-input-group-error-message-pattern>
+                </angular-input-group-info>
+            </angular-input-group>
+
+            <br><br>
+            <div>
+                <div class="ButtonsContainer ButtonsContainer--right"><button class="Button Button--primary" type="submit" ng-click="app.submit(testForm)" ng-disabled="">Submit</button></div>
+            </div>
+        </div>
+    </main>
+</div>

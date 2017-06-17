@@ -1,0 +1,12 @@
+﻿<angular-input-group form-name="inputEmail.formName" field-name="{{inputEmail.fieldName}}">
+    <angular-input-group-label>{{inputEmail.label}}</angular-input-group-label>
+    <angular-input-group-input>
+        <input angular-input id="{{inputEmail.fieldName}}" name="{{inputEmail.fieldName}}" type="email" ng-model="inputEmail.parentModel"
+            ng-change="inputEmail.updateParent()" ng-disabled="inputEmail.shouldDisable()" ng-required="inputEmail.shouldRequire()" maxlength="{{inputEmail.maxLength}}"
+            ng-pattern="inputEmail.pattern" tabindex="{{inputEmail.tabIndex}}" />
+    </angular-input-group-input>
+    <angular-input-group-info show-count="false">
+        <angular-input-group-error-message-required>{{inputEmail.label}} is a required field</angular-input-group-error-message-required>
+        <angular-input-group-error-message-pattern>This is an invalid email address</angular-input-group-error-message-pattern>
+    </angular-input-group-info>
+</angular-input-group>

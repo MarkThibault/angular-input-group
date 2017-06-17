@@ -1,0 +1,13 @@
+﻿<div class="InputGroup-info">
+    <div class="InputGroup-errorSpacer"></div>
+    <div class="InputGroup-errorMessages">
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showRequiredError()" ng-transclude="angularInputGroupErrorMessageRequired"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showMinlengthError()" ng-transclude="angularInputGroupErrorMessageMinlength"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showMaxlengthError()" ng-transclude="angularInputGroupErrorMessageMaxlength"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showPatternError()" ng-transclude="angularInputGroupErrorMessagePattern"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showCustomMessage1" ng-transclude="angularInputGroupErrorMessageCustom1"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showCustomMessage2" ng-transclude="angularInputGroupErrorMessageCustom2"></div>
+        <div role="alert" class="InputGroup-errorMessage" ng-show="inputGroupInfo.showCustomMessage3" ng-transclude="angularInputGroupErrorMessageCustom3"></div>
+    </div>
+    <div class="InputGroup-count" ng-if="inputGroupInfo.showCount">{{inputGroupInfo.inputField.$viewValue.length || 0}} <span ng-if="inputGroupInfo.showMaxlengthCount()">/ {{inputGroupInfo.maxlength}}</span></div>
+</div>

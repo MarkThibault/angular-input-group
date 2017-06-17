@@ -1,0 +1,82 @@
+@import '~angular-shared-scss/src/settings';
+@import '~angular-shared-scss/src/buttons';
+@import '../../src/index';
+
+body {
+    font-family: sans-serif;
+    color: $cape-cod-1;
+    fill: $cape-cod-1;
+    background-color: $haze-3;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+
+    & > .ng-isolate-scope {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        max-width: 100%;
+    }
+}
+
+.Wrapper {
+    width: 100%;
+}
+
+.Main {
+    min-height: calc(100vh - 2rem);
+    padding: 1rem;
+    background-color: white;
+
+    &-left {
+        min-height: 100vh;
+        width: 50%;
+    }
+
+    &-right {
+        height: 100vh;
+        width: 50%;
+        text-align: right;
+    }
+
+    &-buttonRepeat {
+        display: flex;
+    }
+}
+
+@media (min-width: 425px) {
+    .Wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    .Main {
+        display: flex;
+        flex-shrink: 0;
+        width: 425px;
+        margin: 2rem;
+        min-height: 0;
+        align-self: center;
+    }
+}
+
+@media (min-width: 425px) and (min-height: 425px) {
+    .Wrapper {
+        justify-content: center;
+    }
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+a {
+    color: $astral-1;
+}
+h3 {
+    margin-bottom: 0;
+}

@@ -1,0 +1,14 @@
+﻿@import '~angular-shared-scss/src/settings';
+@import '~angular-shared-scss/src/mixins';
+
+$InputGroup: ".InputGroup";
+#{$InputGroup} {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 9.1rem;
+
+    &.is-disabled {
+        opacity: 0.6;
+    }
+}

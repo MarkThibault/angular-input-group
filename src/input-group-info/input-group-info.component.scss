@@ -1,0 +1,46 @@
+﻿@import '~angular-shared-scss/src/settings';
+@import '~angular-shared-scss/src/mixins';
+
+$InputGroup: ".InputGroup";
+#{$InputGroup} {
+    &-info {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        font-size: 0.75rem;
+    }
+
+    &-errorMessages {
+        flex-grow: 1;
+    }
+
+    &-errorMessage {
+        margin: 0.5rem 0 0;
+        line-height: 1;
+        transform: translateY(0);
+        transition: all 0.4s $cubic-bezier;
+        opacity: 1;  
+
+        &.ng-hide {
+            position: absolute;
+            transform: translateY(-2rem);
+            opacity: 0;
+        }    
+    }
+
+    &-count {
+        flex-shrink: 0;
+        margin: 0.5rem 0 0 0.5rem;
+        line-height: 1;
+    }
+
+    &-errorSpacer {
+        min-height: 1.5rem;
+    }
+
+    &.has-error {
+        #{$InputGroup}-errorMessages {
+            color: $persian-red;
+        }
+    }
+}

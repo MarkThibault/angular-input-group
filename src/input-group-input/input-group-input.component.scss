@@ -1,0 +1,294 @@
+﻿@import '~angular-shared-scss/src/settings';
+@import '~angular-shared-scss/src/mixins';
+
+    // decendent - .InputGroup-input
+    $InputGroup-input-border-width: 0.0625rem !default;
+    $InputGroup-input-padding: 0.25rem 0.5rem !default;
+    $InputGroup-input-margin: 0 !default;
+    $InputGroup-input-background-color: $white !default;
+    $InputGroup-input-border-color: $tower !default;
+    $InputGroup-input-border-radius: 0.1875rem !default;
+    $InputGroup-input-border-style: solid !default;
+    $InputGroup-input-box-shadow: none !default;
+    $InputGroup-input-color: inherit !default;
+    $InputGroup-input-font-size: 0.875rem !default;
+    $InputGroup-input-focus-border-color: $sirocco-7 !default;
+    $InputGroup-input-focus-box-shadow: none !default;
+    $InputGroup-input-disabled-background-color: $haze-3 !default;
+    $InputGroup-input-disabled-opacity: 0.5 !default;
+
+        // decendent - .InputGroup-iconWrapper
+    $InputGroup-iconWrapper-InputGroup-input-padding: 0.25rem 1.875rem 0.25rem 0.5rem !default;
+    $InputGroup-iconWrapper-hover-icon-fill: $sirocco-7 !default;
+    $InputGroup-icon-disabled-opacity: $InputGroup-input-disabled-opacity !default;
+
+    $InputGroup-icon-height: 1rem !default;
+    $InputGroup-icon-right: 0.5rem !default;
+    $InputGroup-icon-top: 0.35rem !default;
+    $InputGroup-icon-width: 1rem !default;
+    $InputGroup-icon-fill: $tiara !default;
+
+        // state - .InputGroup.has-value
+    $InputGroup-has-value-input-border-color: $astral-1 !default;
+    $InputGroup-has-value-icon-fill: $astral-1 !default;
+    $InputGroup-has-value-input-hover-border-color: $astral-1 !default;
+    $InputGroup-has-value-iconWrapper-hover-icon-fill: $astral-1 !default;
+    // state - .InputGroup.is-valid
+    $InputGroup-is-valid-input-border-color: $apple !default;
+    $InputGroup-is-valid-icon-fill: $apple !default;
+    $InputGroup-is-valid-input-hover-border-color: $apple !default;
+    $InputGroup-is-valid-iconWrapper-hover-icon-fill: $apple !default;
+    // state - .InputGroup.has-error
+    $InputGroup-has-error-input-border-color: $persian-red !default;
+    $InputGroup-has-error-icon-fill: $persian-red !default;
+    $InputGroup-has-error-input-hover-border-color: $persian-red !default;
+    $InputGroup-has-error-iconWrapper-hover-icon-fill: $persian-red !default;
+
+$InputGroup: ".InputGroup";
+#{$InputGroup} {
+
+    &-inputWrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        max-width: 100%;
+    }
+
+    &-input {
+        flex-grow: 1;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        border-width: $InputGroup-input-border-width;
+        margin: $InputGroup-input-margin;
+        padding: $InputGroup-input-padding;
+
+        background-color: $InputGroup-input-background-color;
+        border-color: $InputGroup-input-border-color;
+        border-radius: $InputGroup-input-border-radius;
+        border-style: $InputGroup-input-border-style;
+        box-shadow: $InputGroup-input-box-shadow;
+        color: $InputGroup-input-color;
+        outline: none;
+        font-size: $InputGroup-input-font-size;
+        font-family: inherit;
+
+        &:focus, &:hover {
+            border-color: $InputGroup-input-focus-border-color;
+            box-shadow: $InputGroup-input-box-shadow;
+        }
+        
+        &:disabled {
+            background-color: $InputGroup-input-disabled-background-color;
+            border-color: $InputGroup-input-border-color;
+            opacity: $InputGroup-input-disabled-opacity;
+        }
+    }
+
+    &-iconWrapper {
+        align-items: center;
+        display: flex;
+        position: relative;
+
+        &:hover {
+            #{$InputGroup}-input {
+                border-color: $InputGroup-input-focus-border-color;
+                
+                &:disabled {
+                    border-color: $InputGroup-input-border-color;
+                }
+            }
+
+            #{$InputGroup}-icon {
+                
+                @include addSvgStyles {
+                    fill: $InputGroup-iconWrapper-hover-icon-fill;
+                }
+            }
+        }
+
+        #{$InputGroup}-input {
+            padding: $InputGroup-iconWrapper-InputGroup-input-padding;
+
+            &:focus + #{$InputGroup}-icon,
+            &:hover + #{$InputGroup}-icon {
+                @include addSvgStyles {
+                    fill: $InputGroup-iconWrapper-hover-icon-fill;
+                }
+            }
+        }
+
+        #{$InputGroup}-input:disabled + #{$InputGroup}-icon {
+            @include addSvgStyles {
+                fill: $InputGroup-icon-fill;
+                opacity: $InputGroup-icon-disabled-opacity;
+            }
+        }
+    }
+    
+    &-icon {
+        position: absolute;
+        height: $InputGroup-icon-height;
+        right: $InputGroup-icon-right;
+        top: $InputGroup-icon-top;
+        width: $InputGroup-icon-width;
+
+        @include addSvgStyles {
+            height: $InputGroup-icon-height;
+            width: $InputGroup-icon-width;
+            fill: $InputGroup-icon-fill;
+        }
+    }
+
+    &--material {
+        &.has-focus {
+            #{$InputGroup}-input {
+                border-width: 0 0 0.125rem;
+                padding: 0.5rem 0 0.4375rem 0;
+            }
+        }
+
+        #{$InputGroup}-input {
+            border-width: 0 0 0.0625rem;
+            border-radius: 0;
+            background-color: transparent;
+            padding: 0.5rem 0 0.5rem 0;
+            margin: 0;
+            font-size: 1rem;
+            box-shadow: $InputGroup-input-box-shadow;
+            transition: border-color 0.3s $cubic-bezier;
+        }
+
+        #{$InputGroup}-input:hover {
+            border-width: 0 0 0.125rem;
+            padding: 0.5rem 0 0.4375rem 0;
+        }
+        #{$InputGroup}-input:focus {
+            background-color: transparent;
+            box-shadow: $InputGroup-input-box-shadow;
+        }
+
+        #{$InputGroup}-input:disabled {
+            opacity: 1;
+            border-style: dashed;
+            border-width: 0 0 0.0625rem;
+            padding: 0.5rem 0 0.5rem 0;         
+        }
+
+        #{$InputGroup}-icon {
+            height: 2rem;
+            right: 0;
+            top: 0.0625rem;
+            width: 2rem;
+
+            @include addSvgStyles {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+
+    &--angular {
+        #{$InputGroup}-input {
+            border-width: 0 0.0625rem 0.0625rem 0.0625rem;
+            border-radius: 0;
+        }
+
+        &:hover, &.has-focus {
+            #{$InputGroup}-input {
+                border-color: $sirocco-7;
+            }
+        }
+    }
+
+    // states
+    @mixin createInputState($inputBorderColor, $iconFillColor, $hoverInputBorderColor, $hoverIconFillColor) {
+        #{$InputGroup}-iconWrapper:hover {
+            #{$InputGroup}-input {
+                border-color: $hoverInputBorderColor;
+
+                &:disabled {
+                    border-color: $inputBorderColor;
+                }
+            }
+
+            #{$InputGroup}-icon {
+                @include addSvgStyles {
+                    fill: $hoverIconFillColor;
+                }
+            }
+        }
+            
+        #{$InputGroup}-input {
+            border-color: $inputBorderColor;
+
+            &:focus, &:hover {
+                border-color: $hoverInputBorderColor;
+            }
+
+            &:disabled {
+                border-color: $inputBorderColor;
+            }
+        }
+
+        #{$InputGroup}-icon {
+            @include addSvgStyles {
+                fill: $iconFillColor;
+            }
+        }
+
+        #{$InputGroup}-input:focus + #{$InputGroup}-icon {
+            @include addSvgStyles {
+                fill: $hoverIconFillColor;
+            }
+        }
+
+        #{$InputGroup}-input:disabled + #{$InputGroup}-icon {
+            @include addSvgStyles {
+                fill: $iconFillColor;
+            }
+        }
+        
+    }
+    
+    &.has-icon &-input {
+        padding-right: 2rem;
+    }
+
+    &.has-focus {
+        &.has-value {
+            @include createInputState(
+                $InputGroup-has-value-input-border-color,
+                $InputGroup-has-value-icon-fill,
+                $InputGroup-has-value-input-hover-border-color,
+                $InputGroup-has-value-iconWrapper-hover-icon-fill
+            )
+        }
+
+        &.is-valid {
+            @include createInputState(
+                $InputGroup-is-valid-input-border-color,
+                $InputGroup-is-valid-icon-fill,
+                $InputGroup-is-valid-input-hover-border-color,
+                $InputGroup-is-valid-iconWrapper-hover-icon-fill
+            )
+        }
+
+        &.has-error {
+            @include createInputState(
+                $InputGroup-has-error-input-border-color,
+                $InputGroup-has-error-icon-fill,
+                $InputGroup-has-error-input-hover-border-color,
+                $InputGroup-has-error-iconWrapper-hover-icon-fill
+            )
+        }
+    }
+
+    &.has-error {
+        @include createInputState(
+            $InputGroup-has-error-input-border-color,
+            $InputGroup-has-error-icon-fill,
+            $InputGroup-has-error-input-hover-border-color,
+            $InputGroup-has-error-iconWrapper-hover-icon-fill
+        )
+    }
+}
