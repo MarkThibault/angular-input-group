@@ -1,6 +1,6 @@
 {
   "name": "angular-input-group",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Angular input group",
   "main": "src/index.ts",
   "types": "src/index.d.ts",

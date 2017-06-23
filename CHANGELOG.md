@@ -1,3 +1,7 @@
+## [0.1.6] - 2017-06-22
+### Bug Fixes
+- Remove types from npmignore
+
 ## [0.1.5] - 2017-06-16
 ### Bug Fixes
 - Fixed bug with count only showing up if maxlength is set
